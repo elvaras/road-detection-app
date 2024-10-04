@@ -49,6 +49,8 @@ def load_geojson():
 
 all_gdfs = load_geojson()
 
+st.write("The map below shows the road detection results of the model on the satellite imagery.")
+
 all_fgs = []
 
 with st.spinner("Preparing data..."):
@@ -80,6 +82,7 @@ with st.spinner("Loading map..."):
         tiles = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
         attr = 'Esri',
         name = 'Esri Satellite',
+        max_zoom = 17,
         overlay = False,
         control = True
         ).add_to(m)
