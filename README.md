@@ -2,14 +2,6 @@
 
 This is a Python application built using Streamlit. The application provides an interface for exploring and testing the output of a deep learning model on satellite imagery.
 
-<!-- ## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Pages](#pages)
-- [Contributing](#contributing)
-- [License](#license) -->
-
 ## Installation
 
 Install the required packages:
