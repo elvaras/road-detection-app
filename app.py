@@ -25,15 +25,15 @@ def load_geojson():
     print('Reading GeoJSON files...')
 
     # Read GeoJSON data into GeoDataFrames
-    gdf_train = gpd.read_file("data/geojson/train.json")
+    gdf_train = gpd.read_file("data/predictions/geojson/train.json")
     gdf_train['dataset'] = 'train'
     gdf_train['color'] = 'blue'
 
-    gdf_val = gpd.read_file("data/geojson/val.json")
+    gdf_val = gpd.read_file("data/predictions/geojson/val.json")
     gdf_val['dataset'] = 'val'
     gdf_val['color'] = 'orange'
 
-    gdf_test = gpd.read_file("data/geojson/test.json")
+    gdf_test = gpd.read_file("data/predictions/geojson/test.json")
     gdf_test['dataset'] = 'test'
     gdf_test['color'] = 'yellow'
 
