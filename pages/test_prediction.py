@@ -130,6 +130,14 @@ def refresh_map(fg=None):
    return st_data
 
 def process_coordinates(lat, lon):
+
+    if 'last_clicked' in st.session_state and st.session_state['last_clicked']['lat'] == lat and st.session_state['last_clicked']['lng'] == lon:
+        print('return')
+        return
+    
+    print('process coordinates')
+    st.session_state['last_clicked'] = {'lat': lat, 'lng': lon}
+
     zoom_level = 17
 
     tile = quadkey.from_geo((lat, lon), zoom_level).to_tile()[0]
@@ -156,7 +164,7 @@ def process_coordinates(lat, lon):
       folium_shapes = folium.GeoJson(data=gdf,
           style_function=lambda feature: {
               "color": "red",
-              "weight": 2,
+              "weight": 4,
               "opacity": 1,
           })
 

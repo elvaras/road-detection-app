@@ -62,7 +62,7 @@ with st.spinner("Preparing data..."):
         folium_shapes = folium.GeoJson(data=gdf,
             style_function=lambda feature: {
                 "color": feature["properties"]["color"],
-                "weight": 2,
+                "weight": 4,
                 "opacity": 1,
             })
 
