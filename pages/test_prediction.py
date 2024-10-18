@@ -145,12 +145,14 @@ def process_coordinates(lat, lon):
 
     with urllib.request.urlopen(tile_url) as url:
         img = load_image(BytesIO(url.read()))
+        st.session_state['img'] = img
 
     with col2:
         st.write('Satellite image')
         st.image(img / 255)
 
     pred = model.predict(img)
+    st.session_state['pred'] = pred
 
     with col2:
         st.write('Geometry prediction')
@@ -190,3 +192,10 @@ if st_data and 'last_clicked' in st_data and st_data['last_clicked'] and st_data
     process_coordinates(clicked_lat, clicked_lon)
 
 
+if 'img' in st.session_state and 'pred' in st.session_state:
+    with col2:
+        st.write('Satellite image')
+        st.image(st.session_state['img'][0] / 255)
+
+        st.write('Geometry prediction')
+        st.image(st.session_state['pred'][0])
